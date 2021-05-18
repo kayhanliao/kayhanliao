@@ -4641,9 +4641,28 @@ sub, sup {
   flex-wrap: wrap;
   justify-content: space-between
 }
+p {
+  color: white;
+  font-family: Montserrat,sans-serif
+
+}
+
+.user h2 {
+  color: #0073e6;
+  font-family: Montserrat,sans-serif
+}
+.user-details h1 {
+  color: #0073e6;
+  font-family: Montserrat,sans-serif
+}
+user-details p {
+  font-size: 16px;
+  font-family: Montserrat,sans-serif
+}
 
 .user p {
-  font-size: 16px
+  font-size: 16px;
+  font-family: Montserrat,sans-serif
 }
 
 @media only screen and (min-width:768px) {
