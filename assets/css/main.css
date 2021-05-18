@@ -4626,7 +4626,7 @@ sub, sup {
 
 .tech {
   margin: 10px;
-  flex: 1 1 0
+  flex: 1 1 1
 }
 
 .tech h2, .tech h3, .user-details h1, body {
@@ -4671,6 +4671,8 @@ user-details p {
     font-size: 75px
   }
 }
+
+
 
 .user-details {
   text-align: center;
