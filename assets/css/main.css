@@ -4641,7 +4641,6 @@ sub, sup {
   flex-wrap: wrap;
   justify-content: space-between
 }
-
 p {
   color: white;
   font-family: Montserrat,sans-serif
@@ -4666,7 +4665,7 @@ user-details p {
   font-family: Montserrat,sans-serif
 }
 
-@media only screen and (min-width:1063px) {
+@media only screen and (min-width:768px) {
   .user {
     flex-wrap: nowrap;
     font-size: 75px
