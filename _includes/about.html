@@ -268,13 +268,56 @@ Grafana, Kibana, Elasticsearch, InfluxDB, RRDtool. </p>
 
     <p style='text-align:left'>As I've interacted with people in this hobby, discussing and exchanging opinions, I've become more and more invested in this community.
       I plan on building many keyboards in the future for both myself and friends & family.
-      Here a gallery of some of the keyboards I’ve built. </P>
-    <img src='./assets/img/think65_v2.JPG' class='keyboard'>
+      Here is a gallery of some of the keyboards I’ve built.
+
+    </P>
+      <p></p>
+    <!-- <img src='./assets/img/think65_v2.JPG' class='keyboard'>
     <img src='./assets/img/sakura.JPG' class='keyboard'>
-    <img src='./assets/img/bento.JPG' class='keyboard'>
+    <img src='./assets/img/bento.JPG' class='keyboard'> -->
+  </div>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+  .mySlides {display:none;}
+  </style>
+
+  <div class="w3-content w3-display-container">
+
+    <img src='./assets/img/think65_v2.JPG' class='mySlides' style="width:100%">
+    <img src='./assets/img/sakura.JPG' class='mySlides' style="width:100%">
+    <img src='./assets/img/bento.JPG' class='mySlides' style="width:100%">
 
 
-<p style='text-align:left'>
+
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+
+  <script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    x[slideIndex-1].style.display = "block";
+  }
+  </script>
+  <p></p>
+
+  <div class="user-details">
+
+    <p style='text-align:left'>
 Additionally, I really enjoy traveling. My Taiwanese heritage has given me the opportunity to travel lots of different countries in Asia. Some of my favorite place I visited are Taiwan, Thailand, and Singapore. The places I want to go next are Japan and Korea. I’m also currently learning Japanese. Aside from Asia, I also wish to explore places I haven’t been in Europe, such as Germany and the Netherlands.
 </p>
 <p style='text-align:left'>
