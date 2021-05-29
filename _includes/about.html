@@ -3,54 +3,85 @@
 h1 {
   font-family: Montserrat,sans-serif;
   margin: 40px;
+}
+
+
+.slide-container .prev,
+.slide-container .next {
+cursor: pointer;
+position: absolute;
+top: 50%;
+width: auto;
+margin-top: -22px;
+padding: 16px;
+color: white;
+font-weight: bold;
+font-size: 20px;
+transition: all 0.6s ease;
+border-radius: 0 3px 3px 0;
+user-select: none;
+text-decoration: none !important;
 
 }
 
-#slider {
-	overflow: hidden;
-}
-#slider figure {
-	position: relative;
-	width: 500%;
-	margin: 0;
-	left: 0;
-	animation: 20s slider infinite;
-}
-#slider figure img {
-	width: 20%;
-	float: left;
+.slide-container .prev:hover,
+.slide-container .next:hover {
+background-color: rgba(0, 0, 0, 0.8);
+color: white;
 }
 
-@keyframes slider {
-	0% {
-		left: 0;
-	}
-	20% {
-		left: 0;
-	}
-	25% {
-		left: -100%;
-	}
-	45% {
-		left: -100%;
-	}
-	50% {
-		left: -200%;
-	}
-	70% {
-		left: -200%;
-	}
-	75% {
-		left: -300%;
-	}
-	95% {
-		left: -300%;
-	}
-	100% {
-		left: -400%;
-	}
+.slide-container .prev {
+left: 2px;
 }
 
+.slide-container .next {
+right: 2px;
+}
+
+.dots-container {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px;
+}
+
+.dots-container .dot {
+cursor: pointer;
+margin: 5px;
+width: 20px;
+height: 20px;
+color: #333;
+border-radius: 50%;
+background-color: #dfd6ce;
+}
+
+.dots-container .dot.active {
+border: 2px solid green;
+}
+
+
+
+.slide-container {
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 1000px;
+margin: auto;
+position: relative;
+}
+
+.slide-container .slide {
+display: none;
+width: 100%;
+}
+
+.slide-container .slide.fade {
+animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+.slide-container .slide img {
+width: 100%;
+}
 
 .row {
   display: flex;
@@ -150,7 +181,7 @@ iframe {
 </style>
 
 <div class="user-details">
-  <h1 style="font-family:Montserrat,sans-serif;">About Me</h1>
+  <h1 style="font-family:Montserrat,sans-serif;font-weight:bold;">About Me</h1>
 
   <div class="row">
     <div class="column" >
@@ -180,7 +211,7 @@ iframe {
 </div>
 
 <div class="user-details">
-  <h1>Skills</h1>
+  <h1 style="font-weight:bold;">Skills</h1>
   <p style="text-align:left">
     As a data scientist in a quickly growing company, I've worked with many different tools and frameworks.
     My skillset is made up of both traditional data science skills and more modern variants. Because data science is a relatively young specialization
@@ -192,7 +223,7 @@ iframe {
 
 <div class="user">
   <div class="tech">
-  <h2 style="font-family:Montserrat,sans-serif;">Code</h2>
+  <h2 style="font-family:Montserrat,sans-serif;font-weight:bold;">Code</h2>
   <svg viewBox="0 0 128 128">
     <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><path fill="url(#a)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137h-33.961c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491v-11.282c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548v-23.513c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zm-13.354 7.569c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#b)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655h-24.665c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412h-24.664v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zm-13.873 59.547c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/><radialGradient id="c" cx="1825.678" cy="444.45" r="26.743" gradientTransform="matrix(0 -.24 -1.055 0 532.979 557.576)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B8B8B8" stop-opacity=".498"/><stop offset="1" stop-color="#7F7F7F" stop-opacity="0"/></radialGradient><path opacity=".444" fill="url(#c)" enable-background="new" d="M97.309 119.597c0 3.543-14.816 6.416-33.091 6.416-18.276 0-33.092-2.873-33.092-6.416 0-3.544 14.815-6.417 33.092-6.417 18.275 0 33.091 2.872 33.091 6.417z"/>
   </svg>
@@ -209,7 +240,7 @@ iframe {
 </div>
 
 <div class="tech">
-<h2 style>Visualization</h2>
+<h2 style="font-weight:bold;">Visualization</h2>
 <svg viewBox="0 0 128 128">
   <clipPath id="clip">
     <path d="M0,0h7.75a45.5,45.5 0 1 1 0,91h-7.75v-20h7.75a25.5,25.5 0 1 0 0,-51h-7.75zm36.2510,0h32a27.75,27.75 0 0 1 21.331,45.5a27.75,27.75 0 0 1 -21.331,45.5h-32a53.6895,53.6895 0 0 0 18.7464,-20h13.2526a7.75,7.75 0 1 0 0,-15.5h-7.75a53.6895,53.6895 0 0 0 0,-20h7.75a7.75,7.75 0 1 0 0,-15.5h-13.2526a53.6895,53.6895 0 0 0 -18.7464,-20z"/>
@@ -300,7 +331,7 @@ Grafana, Kibana, Elasticsearch, InfluxDB, RRDtool. </p>
   </p>
 </div>
 <div class="user-details">
-  <h1>Personal Interests</h1>
+  <h1 style="font-weight:bold;">Personal Interests</h1>
   <p style='text-align:left'>
     My most prominent hobby is building custom mechanical keyboards. I discovered the hobby in 2019 and have been apart of this growing community since.
     As someone that writes code almost daily, having a luxury keyboard makes the experience exponentially more enjoyable.
@@ -315,13 +346,37 @@ Grafana, Kibana, Elasticsearch, InfluxDB, RRDtool. </p>
     <p style='text-align:left'>As I've interacted with people in this hobby, discussing and exchanging opinions, I've become more and more invested in this community.
       I plan on building many keyboards in the future for both myself and friends & family.
       Here a gallery of some of the keyboards I’ve built. </P>
-<!--
-    <img src='./assets/img/think65_v2.JPG' class='keyboard'>
-    <img src='./assets/img/sakura.JPG' class='keyboard'>
-    <img src='./assets/img/bento.JPG' class='keyboard'> -->
+
 
   </div>
+  <div class="slide-container">
+ <div class="slide fade">
+   <img src='./assets/img/think65_v2.JPG' class='keyboard'>
+ </div>
+ <div class="slide fade">
+   <img src='./assets/img/sakura.JPG' class='keyboard'>
+ </div>
+ <div class="slide fade">
+    <img src='./assets/img/bento.JPG' class='keyboard'>
+   </div>
+ <!-- <div class="slide fade">
+    <img src='./assets/img/4th_keyboard.JPG' class='keyboard'>
+   </div> -->
 
+
+
+<a href='javascript:void();' class="prev" title="Previous">&#8678;</a>
+
+<a href='javascript:void();' class="next" title="Next">&#8680;</a>
+</div>
+<div class="dots-container">
+ <span class="dot"></span>
+ <span class="dot"></span>
+ <span class="dot"></span>
+ <!-- <span class="dot"></span> -->
+</div>
+
+<!--
     <div id = "slider">
       <figure>
         <img src='./assets/img/think65_v2.JPG' class='keyboard'>
@@ -330,8 +385,9 @@ Grafana, Kibana, Elasticsearch, InfluxDB, RRDtool. </p>
         <img src='./assets/img/bento.JPG' class='keyboard'>
         <img src='./assets/img/think65_v2.JPG' class='keyboard'>
       </figure>
-    </div>
+    </div> -->
 
+ <div class="user-details">
 
 <p style='text-align:left'>
 Additionally, I really enjoy traveling. My Taiwanese heritage has given me the opportunity to travel lots of different countries in Asia. Some of my favorite place I visited are Taiwan, Thailand, and Singapore. The places I want to go next are Japan and Korea. I’m also currently learning Japanese. Aside from Asia, I also wish to explore places I haven’t been in Europe, such as Germany and the Netherlands.
@@ -343,9 +399,53 @@ Lastly, I like to spend my free time watching anime and reading manga. I also en
 
 
 <div class="user-details">
-  <h1>Contact</h1>
+  <h1 style="font-weight:bold;">Contact</h1>
   <p> You can contact me through the links provided in the icons above or at </p>
 <p>E-mail: <a href="mailto:kayhankubi@gmail.com" style="color:#0073e6">kayhankubi@gmail.com</a></p>
 <p>I also run a blog documenting both my professional and personal experiences. </p>
 <p>Blog: <a href="https://blog.kayhanliao.com/" style="color:#0073e6">blog.kayhanliao.com</a></p>
 </div>
+
+<script>
+    let currentSlide = 0;
+const slides = document.querySelectorAll(".slide")
+const dots = document.querySelectorAll('.dot')
+
+const init = (n) => {
+  slides.forEach((slide, index) => {
+    slide.style.display = "none"
+    dots.forEach((dot, index) => {
+      dot.classList.remove("active")
+    })
+  })
+  slides[n].style.display = "block"
+  dots[n].classList.add("active")
+}
+document.addEventListener("DOMContentLoaded", init(currentSlide))
+const next = () => {
+  currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
+  init(currentSlide)
+}
+
+const prev = () => {
+  currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
+  init(currentSlide)
+}
+
+document.querySelector(".next").addEventListener('click', next)
+
+document.querySelector(".prev").addEventListener('click', prev)
+
+
+setInterval(() => {
+  next()
+}, 5000);
+
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    console.log(currentSlide)
+    init(i)
+    currentSlide = i
+  })
+})
+  </script>
