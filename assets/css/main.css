@@ -4655,14 +4655,18 @@ p {
   color: #0073e6;
   font-family: Montserrat,sans-serif
 }
-user-details p {
-  font-size: 16px;
+.user-details p {
+  font-size: 18px;
   font-family: Montserrat,sans-serif
 }
 
 .user p {
-  font-size: 16px;
+  font-size: 18px;
   font-family: Montserrat,sans-serif
+}
+
+.tech p {
+  font-size: 18px;
 }
 
 @media only screen and (min-width:768px) {
@@ -4670,7 +4674,11 @@ user-details p {
     flex-wrap: nowrap;
     font-size: 75px
   }
+  .tech {
+  font-size:;
 }
+}
+
 
 
 
